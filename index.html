@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深食记Filmmaker - 美食自媒体介绍</title>
+    
+    <!-- 
+    ====== 配置区域 ======
+    修改下面的内容即可更新页面
+-->
+    <script>
+        const CONFIG = {
+            // 基础信息
+            name: "深食记 Filmmaker",
+            subtitle: "深圳美食自媒体 | 16年传媒经验 | 专注探店内容",
+            logo: "/Users/longyu/Desktop/深食记logo.png",
+            
+            // 数据（每天更新）
+            data: {
+                totalFans: "7.5万+",
+                totalViews: "5000万+",
+                monthlyGrowth: "1万+",
+                maxViews: "74.5万",
+                avgViews: "5万+",
+                avgLikes: "2000+"
+            },
+            
+            // 粉丝画像
+            fanProfile: {
+                location: "80%深圳本地",
+                age: "25-45岁",
+                gender: "女性占比65%",
+                feature: "高消费力美食爱好者"
+            },
+            
+            // 各平台数据
+            platforms: {
+                douyin: { name: "抖音", fans: "1.9万", change: "持续更新中" },
+                xiaohongshu: { name: "小红书", fans: "1.3万", change: "7天涨粉2000+" },
+                shipinhao: { name: "视频号", fans: "4.3万", change: "昨日涨粉3000+" }
+            },
+            
+            // 收费标准
+            prices: [
+                { name: "探店视频", price: "¥5000", tag: "热卖", desc: "发布抖音+小红书+视频号" }
+            ],
+            
+            // 案例 - 可添加图片URL
+            cases: [
+                { 
+                    title: "好运莱牛肉馆", 
+                    views: "3.7万", 
+                    likes: "2000+", 
+                    location: "龙岗", 
+                    emoji: "🍖",
+                    desc: "闽南特色牛肉馆，招牌咖喱牛排"
+                },
+                { 
+                    title: "夜夜鲜大排档", 
+                    views: "3311", 
+                    likes: "700+", 
+                    location: "南山", 
+                    emoji: "🦞",
+                    desc: "高端潮菜大排档，私房菜手法"
+                },
+                { 
+                    title: "罗湖麻糍店", 
+                    views: "2.1万", 
+                    likes: "1000+", 
+                    location: "罗湖", 
+                    emoji: "🍡",
+                    desc: "纯手工麻糍，糯唧唧天堂"
+                },
+                { 
+                    title: "现宰猪杂汤", 
+                    views: "74.5万", 
+                    likes: "1.7万", 
+                    location: "坪山", 
+                    emoji: "🍲",
+                    desc: "凌晨现宰猪杂，本地人推荐"
+                }
+            ],
+            
+            // 联系方式
+            contact: "抖音/小红书/视频号：深食记Filmmaker"
+        };
+    </script>
+    
+    <!-- 
+    ====== 以下为代码，不要轻易修改 ======
+-->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
+            height: 300px;
+            background: radial-gradient(ellipse at center, rgba(255,107,107,0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 24px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            box-shadow: 0 10px 40px rgba(255,107,107,0.3);
+        }
+        
+        h1 {
+            font-size: 36px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa502);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 16px;
+        }
+        
+        /* Section */
+        .section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff6b6b, #ffa502);
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title span { font-size: 28px; }
+        
+        /* 数据卡片 */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .data-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .data-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(255,107,107,0.15);
+        }
+        
+        .data-card .label {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .data-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        
+        .data-card .value.green { color: #4ecdc4; }
+        .data-card .value.yellow { color: #ffa502; }
+        
+        /* 平台数据 */
+        .platform-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        
+        .platform-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .platform-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 12px;
+        }
+        
+        .douyin-icon { background: linear-gradient(135deg, #000 0%, #1a1a2e 100%); }
+        .xiaohongshu-icon { background: linear-gradient(135deg, #ff2442 0%, #ff6b6b 100%); }
+        .shipinhao-icon { background: linear-gradient(135deg, #07c160 0%, #4ecdc4 100%); }
+        
+        .platform-name { font-size: 15px; margin-bottom: 8px; color: #fff; }
+        .platform-fans { font-size: 26px; font-weight: bold; }
+        .platform-change { font-size: 12px; color: #4ecdc4; margin-top: 4px; }
+        
+        /* 团队介绍 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .team-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-left: 4px solid #ff6b6b;
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover { transform: translateX(4px); }
+        
+        .team-card .icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        
+        .team-card h3 { color: #ffa502; margin-bottom: 10px; font-size: 17px; }
+        .team-card p { color: #bbb; font-size: 14px; line-height: 1.7; }
+        
+        .equipment-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .equipment-tag {
+            background: rgba(255,107,107,0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #ff6b6b;
+        }
+        
+        /* 价值描述 */
+        .value-box {
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(255,165,2,0.05) 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255,107,107,0.15);
+        }
+        
+        .value-box h4 {
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .value-box p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        /* 粉丝画像 */
+        .fan-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .fan-item {
+            background: linear-gradient(135deg, rgba(78,205,196,0.1) 0%, rgba(78,205,196,0.02) 100%);
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            border: 1px solid rgba(78,205,196,0.15);
+        }
+        
+        .fan-item .icon { font-size: 28px; margin-bottom: 8px; }
+        .fan-item .label { color: #888; font-size: 12px; margin-bottom: 4px; }
+        .fan-item .value { color: #4ecdc4; font-weight: bold; font-size: 15px; }
+        
+        /* 案例展示 */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .case-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .case-thumb {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .case-thumb.gradient-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .case-thumb.gradient-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .case-thumb.gradient-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .case-thumb.gradient-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        
+        .case-thumb .emoji { font-size: 60px; }
+        
+        .case-thumb .location {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .case-thumb .play-count {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .case-info { padding: 18px; }
+        .case-info h4 { font-size: 17px; margin-bottom: 6px; }
+        .case-info .desc { font-size: 13px; color: #888; margin-bottom: 8px; }
+        .case-info .stats { font-size: 13px; color: #4ecdc4; }
+        
+        /* 客户价值 */
+        .benefit-list { list-style: none; }
+        
+        .benefit-list li {
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: transform 0.3s;
+        }
+        
+        .benefit-list li:hover { transform: translateX(6px); }
+        
+        .benefit-list .icon {
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+        
+        .benefit-list .content h4 {
+            color: #ffa502;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .benefit-list .content p {
+            color: #bbb;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        .benefit-list .content strong {
+            color: #ff6b6b;
+        }
+        
+        /* 收费标准 */
+        .price-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.12) 0%, rgba(255,165,2,0.08) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255,107,107,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-section::before {
+            content: '🔥';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 40px;
+            opacity: 0.3;
+        }
+        
+        .price-section .name {
+            font-size: 20px;
+            color: #ccc;
+            margin-bottom: 16px;
+        }
+        
+        .price-section .price {
+            font-size: 56px;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255,107,107,0.3);
+        }
+        
+        .price-section .desc {
+            color: #aaa;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .price-section .tag {
+            display: inline-block;
+            padding: 10px 24px;
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
+            color: #fff;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            padding: 18px 60px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa502);
+            border-radius: 40px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,107,107,0.4);
+        }
+        
+        .contact-text {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .update-time {
+            color: #555;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .data-grid, .platform-row, .team-grid, .case-grid, .fan-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fan-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-bg"></div>
+            <img src="" alt="logo" class="logo" id="logoImg">
+            <h1 id="nameText"></h1>
+            <p class="subtitle" id="subtitleText"></p>
+        </header>
+        
+        <!-- 账号概况 -->
+        <section class="section">
+            <h2 class="section-title"><span>📊</span> 账号概况</h2>
+            <div class="data-grid">
+                <div class="data-card">
+                    <div class="label">全网粉丝</div>
+                    <div class="value" id="totalFans"></div>
+                </div>
+                <div class="data-card">
+                    <div class="label">累计播放</div>
+                    <div class="value green" id="totalViews"></div>
+                </div>
+                <div class="data-card">
+                    <div class="label">月均涨粉</div>
+                    <div class="value yellow" id="monthlyGrowth"></div>
+                </div>
+            </div>
+            
+            <h3 style="margin: 0 0 20px; color: #ffa502; font-size: 16px;">📱 各平台数据</h3>
+            <div class="platform-row">
+                <div class="platform-card">
+                    <div class="platform-icon douyin-icon">📹</div>
+                    <div class="platform-name" id="douyinName">抖音</div>
+                    <div class="platform-fans" id="douyinFans"></div>
+                    <div class="platform-change" id="douyinChange"></div>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon xiaohongshu-icon">📕</div>
+                    <div class="platform-name" id="xiaohongshuName">小红书</div>
+                    <div class="platform-fans" id="xiaohongshuFans"></div>
+                    <div class="platform-change" id="xiaohongshuChange"></div>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon shipinhao-icon">💬</div>
+                    <div class="platform-name" id="shipinhaoName">视频号</div>
+                    <div class="platform-fans" id="shipinhaoFans"></div>
+                    <div class="platform-change" id="shipinhaoChange"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 团队介绍 -->
+        <section class="section">
+            <h2 class="section-title"><span>👥</span> 我们是一群广告老炮</h2>
+            
+            <div class="value-box">
+                <h4>🎬 十年广告人，做的是广告级的探店视频</h4>
+                <p>我们不是市面上随便拍拍的那种探店视频。我们是做了十几年的广告人，用的是广告的拍摄标准：脚本策划、拍摄、灯光、美术、后期调色...每一道工序都按广告流程走。</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="icon">🎥</div>
+                    <h3>导演/摄影</h3>
+                    <p>16年影视传媒经验，曾任职深圳电视台。擅长美食纪录片风格，用镜头讲故事，每一道菜都有自己的情绪。</p>
+                </div>
+                <div class="team-card">
+                    <div class="icon">💡</div>
+                    <h3>灯光/美术</h3>
+                    <p>广告级布光思路，不是随便打个灯就拍。我们追求的是：让食物看起来更好吃，让场景看起来更有质感。</p>
+                </div>
+                <div class="team-card">
+                    <div class="icon">✂️</div>
+                    <h3>后期/调色</h3>
+                    <p>专业剪辑师+调色师，PR/AE/达芬奇全精通。画面质感对标商业广告，不是那种短视频套个模板的粗糙感。</p>
+                </div>
+                <div class="team-card">
+                    <div class="icon">📝</div>
+                    <h3>策划/运营</h3>
+                    <p>深耕深圳美食6年，蹭热点能力一流。懂得什么内容能火，什么选题值得做，什么话题能引发传播。</p>
+                </div>
+            </div>
+            
+            <div class="value-box" style="margin-top: 20px;">
+                <h4>📷 专业设备</h4>
+                <div class="equipment-list">
+                    <span class="equipment-tag">📷 索尼A7M4</span>
+                    <span class="equipment-tag">🎬 电影镜头</span>
+                    <span class="equipment-tag">🚁 大疆Mavic 3</span>
+                    <span class="equipment-tag">💡 南光/GVM</span>
+                    <span class="equipment-tag">⚡ 如影RS3</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 数据分析 -->
+        <section class="section">
+            <h2 class="section-title"><span>📈</span> 数据背后的价值</h2>
+            
+            <div class="data-grid">
+                <div class="data-card">
+                    <div class="label">最高播放</div>
+                    <div class="value green" id="maxViews"></div>
+                </div>
+                <div class="data-card">
+                    <div class="label">平均播放</div>
+                    <div class="value" id="avgViews"></div>
+                </div>
+                <div class="data-card">
+                    <div class="label">平均点赞</div>
+                    <div class="value yellow" id="avgLikes"></div>
+                </div>
+            </div>
+            
+            <div class="value-box" style="margin-top: 20px;">
+                <h4>💎 这意味着什么？</h4>
+                <p>我们的粉丝不是刷来的僵尸粉，都是<strong>实实在在活跃的深圳本地吃货</strong>。80%都是深圳本地人，25-45岁，女性占65%——这意味着：<strong>如果你是一家餐厅，这些粉丝就是你的目标客群</strong>。一条视频发出去，可能就有几千个精准吃货看到你的店。</p>
+            </div>
+            
+            <h3 style="margin: 24px 0 16px; color: #ffa502; font-size: 16px;">🎯 粉丝画像</h3>
+            <div class="fan-grid">
+                <div class="fan-item">
+                    <div class="icon">📍</div>
+                    <div class="label">主要地区</div>
+                    <div class="value" id="fanLocation"></div>
+                </div>
+                <div class="fan-item">
+                    <div class="icon">👤</div>
+                    <div class="label">年龄</div>
+                    <div class="value" id="fanAge"></div>
+                </div>
+                <div class="fan-item">
+                    <div class="icon">💃</div>
+                    <div class="label">性别</div>
+                    <div class="value" id="fanGender"></div>
+                </div>
+                <div class="fan-item">
+                    <div class="icon">🎯</div>
+                    <div class="label">特征</div>
+                    <div class="value" id="fanFeature"></div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px;">
+                <h4 style="color: #ffa502; margin-bottom: 14px; font-size: 15px;">📋 近期数据亮点</h4>
+                <ul style="color: #bbb; font-size: 14px; line-height: 2.2; padding-left: 20px;">
+                    <li>🎬 视频号：昨日播放57.1万，涨粉2982</li>
+                    <li>📕 小红书：近7天曝光37.6万，涨粉2055</li>
+                    <li>🔥 最高单条视频播放74.5万</li>
+                    <li>💬 互动率高：评论、收藏、分享数据优秀</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 案例展示 -->
+        <section class="section">
+            <h2 class="section-title"><span>🎬</span> 案例展示</h2>
+            <p style="color: #777; margin-bottom: 20px; font-size: 14px;">真实数据，可查看商家生意对比</p>
+            <div class="case-grid" id="caseGrid">
+                <!-- 案例由JS生成 -->
+            </div>
+        </section>
+        
+        <!-- 客户价值 -->
+        <section class="section">
+            <h2 class="section-title"><span>💰</span> 能为客户带来的价值</h2>
+            
+            <ul class="benefit-list">
+                <li>
+                    <div class="icon">🔥</div>
+                    <div class="content">
+                        <h4>流量曝光</h4>
+                        <p>单条视频平均<strong>5万+播放</strong>，最高<strong>74万+</strong>。一次拍摄，三个平台同步发布，相当于请了一个覆盖全网的推广团队。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🎯</div>
+                    <div class="content">
+                        <h4>精准转化</h4>
+                        <p>80%粉丝是深圳本地人，25-45岁高消费力人群，女性占65%。<strong>这些粉丝是真的会去店里吃饭的人</strong>，不是来看热闹的。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">📱</div>
+                    <div class="content">
+                        <h4>三平台分发</h4>
+                        <p><strong>一次拍摄，抖音+小红书+视频号同步发布</strong>。别人做三个平台要花三份钱，我们一次搞定。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🎬</div>
+                    <div class="content">
+                        <h4>广告级品质</h4>
+                        <p>我们是用拍广告的标准做探店视频。<strong>专业的灯光、专业的剪辑、专业的调色</strong>，让你的店铺看起来比同行更专业、更有质感。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">📈</div>
+                    <div class="content">
+                        <h4>品牌提升</h4>
+                        <p>不仅仅是拍一条视频，是帮你<strong>提升店铺形象</strong>。好的探店视频放点评上，放大众点评上，都是加分项。</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- 收费标准 -->
+        <section class="section">
+            <h2 class="section-title"><span>💵</span> 收费标准</h2>
+            <div class="price-section" id="priceSection">
+                <!-- 价格由JS生成 -->
+            </div>
+        </section>
+        
+        <!-- 联系我们 -->
+        <footer>
+            <p class="contact-text">📩 合作请私信</p>
+            <p class="contact-info" id="contactText"></p>
+            <a href="#" class="contact-btn">立即联系</a>
+            <p class="update-time">数据更新时间：<span id="updateTime"></span></p>
+        </footer>
+    </div>
+    
+    <script>
+        // 使用配置填充页面
+        document.getElementById('logoImg').src = CONFIG.logo;
+        document.getElementById('nameText').textContent = CONFIG.name;
+        document.getElementById('subtitleText').textContent = CONFIG.subtitle;
+        
+        document.getElementById('totalFans').textContent = CONFIG.data.totalFans;
+        document.getElementById('totalViews').textContent = CONFIG.data.totalViews;
+        document.getElementById('monthlyGrowth').textContent = CONFIG.data.monthlyGrowth;
+        document.getElementById('maxViews').textContent = CONFIG.data.maxViews;
+        document.getElementById('avgViews').textContent = CONFIG.data.avgViews;
+        document.getElementById('avgLikes').textContent = CONFIG.data.avgLikes;
+        
+        // 粉丝画像
+        document.getElementById('fanLocation').textContent = CONFIG.fanProfile.location;
+        document.getElementById('fanAge').textContent = CONFIG.fanProfile.age;
+        document.getElementById('fanGender').textContent = CONFIG.fanProfile.gender;
+        document.getElementById('fanFeature').textContent = CONFIG.fanProfile.feature;
+        
+        // 平台数据
+        document.getElementById('douyinName').textContent = CONFIG.platforms.douyin.name;
+        document.getElementById('douyinFans').textContent = CONFIG.platforms.douyin.fans;
+        document.getElementById('douyinChange').textContent = CONFIG.platforms.douyin.change;
+        document.getElementById('xiaohongshuName').textContent = CONFIG.platforms.xiaohongshu.name;
+        document.getElementById('xiaohongshuFans').textContent = CONFIG.platforms.xiaohongshu.fans;
+        document.getElementById('xiaohongshuChange').textContent = CONFIG.platforms.xiaohongshu.change;
+        document.getElementById('shipinhaoName').textContent = CONFIG.platforms.shipinhao.name;
+        document.getElementById('shipinhaoFans').textContent = CONFIG.platforms.shipinhao.fans;
+        document.getElementById('shipinhaoChange').textContent = CONFIG.platforms.shipinhao.change;
+        
+        // 案例
+        const gradients = ['gradient-1', 'gradient-2', 'gradient-3', 'gradient-4'];
+        const caseGrid = document.getElementById('caseGrid');
+        CONFIG.cases.forEach((caseItem, index) => {
+            caseGrid.innerHTML += `
+                <div class="case-card">
+                    <div class="case-thumb ${gradients[index]}">
+                        <span class="emoji">${caseItem.emoji}</span>
+                        <span class="location">📍 ${caseItem.location}</span>
+                        <span class="play-count">▶ ${caseItem.views}</span>
+                    </div>
+                    <div class="case-info">
+                        <h4>${caseItem.title}</h4>
+                        <p class="desc">${caseItem.desc}</p>
+                        <p class="stats">👍 ${caseItem.likes} 赞</p>
+                    </div>
+                </div>
+            `;
+        });
+        
+        // 价格
+        const priceSection = document.getElementById('priceSection');
+        CONFIG.prices.forEach(priceItem => {
+            let tagsHtml = priceItem.tag ? `<span class="tag">${priceItem.tag}</span>` : '';
+            priceSection.innerHTML += `
+                <div class="name">${priceItem.name}</div>
+                <div class="price">${priceItem.price}</div>
+                <div class="desc">${priceItem.desc}</div>
+                ${tagsHtml}
+            `;
+        });
+        
+        // 联系方式
+        document.getElementById('contactText').textContent = CONFIG.contact;
+        
+        // 更新时间
+        const now = new Date();
+        document.getElementById('updateTime').textContent = now.getFullYear() + '-' + 
+            String(now.getMonth()+1).padStart(2,'0') + '-' + 
+            String(now.getDate()).padStart(2,'0');
+    </script>
+</body>
+</html>
