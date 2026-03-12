@@ -7,22 +7,420 @@
     <script>
         const CONFIG = {
             courses: [
-                {day:1,title:"区块链基础",desc:"什么是区块链/去中心化/PoW vs PoS",content:"<h3>区块链核心概念</h3><p>区块链是一个分布式账本，所有数据公开透明、不可篡改。</p><h4>核心特点：</h4><ul><li>去中心化 - 无需银行等中间机构</li><li>不可篡改 - 数据一旦上链无法修改</li><li>公开透明 - 所有人都可以查询</li></ul><h4>共识机制：</h4><ul><li><strong>PoW</strong> - 工作量证明（BTC使用）</li><li><strong>PoS</strong> - 权益证明（ETH使用）</li></ul>",video:"https://youtu.be/bBC-nXj3Ng4",status:"completed"},
-                {day:2,title:"BTC和ETH",desc:"比特币/以太坊/智能合约",content:"<h3>两大主流币种</h3><h4>BTC 比特币</h4><p>数字黄金，储值资产，总量2100万枚</p><h4>ETH 以太坊</h4><p>智能合约平台，可运行DApp，总量无上限</p><h4>代币属性：</h4><ul><li>BTC - 货币属性</li><li>ETH - 燃料属性（支付Gas）</li></ul>",video:"",status:"completed"},
-                {day:3,title:"钱包入门",desc:"私钥/公钥/地址",content:"<h3>钱包基础</h3><h4>私钥</h4><p>相当于银行卡密码，谁拥有私钥谁就控制资产</p><h4>公钥</h4><p>由私钥推导，用于生成地址</p><h4>地址</h4><p>由公钥推导，相当于银行卡号，用于接收代币</p><h4>记住：</h4><ul><li>私钥绝不能泄露</li><li>私钥=资产控制权</li></ul>",video:"https://youtu.be/QF4yjmPHGlQ",status:"completed"},
-                {day:4,title:"助记词",desc:"钱包种子/12个单词",content:"<h3>助记词（Seed Phrase）</h3><p>12或24个单词，相当于私钥的备份</p><h4>重要原则：</h4><ul><li>绝不能截图保存</li><li>绝不能发给别人</li><li>手写在纸上，分开保存</li></ul><h4>如果丢失：</h4><p>资产永久丢失，无法恢复</p>",video:"",status:"completed"},
-                {day:5,title:"区块链浏览器",desc:"查询工具/交易记录",content:"<h3>区块浏览器使用</h3><h4>常用浏览器：</h4><ul><li>BTC: blockchain.com</li><li>ETH: etherscan.io</li></ul><h4>核心概念：</h4><ul><li><strong>TxHash</strong> - 交易哈希（交易ID）</li><li><strong>Block Height</strong> - 区块高度</li><li><strong>确认数</strong> - 区块链确认次数</li></ul><h4>实操任务：</h4><p>打开 etherscan.io 查询任意地址</p>",video:"https://youtu.be/BD5R2OsZ9Xk",status:"active"},
-                {day:6,title:"Metamask",desc:"小狐狸钱包/安装使用",content:"<h3>Metamask 小狐狸钱包</h3><p>最流行的ETH钱包浏览器插件</p><h4>安装：</h4><ul><li>Chrome应用商店下载</li><li>创建或导入钱包</li></ul><h4>功能：</h4><ul><li>存储ETH和代币</li><li>连接DApp</li><li>签名交易</li></ul><h4>注意：</h4><p>不要告诉任何人你的助记词！</p>",video:"",status:"locked"},
-                {day:7,title:"交易所科普",desc:"CEX vs DEX/币安OKX",content:"<h3>交易所类型</h3><h4>CEX 中心化交易所</h4><ul><li>币安（Binance）- 全球最大</li><li>OKX - 资历老</li><li>Bybit - 衍生品强</li></ul><h4>DEX 去中心化交易所</h4><ul><li>Uniswap</li><li>PancakeSwap</li></ul><h4>区别：</h4><ul><li>CEX - 你持币，交易所保管</li><li>DEX - 你持币，钱包保管</li></ul>",video:"",status:"locked"},
-                {day:8,title:"KYC实名",desc:"身份验证/实名认证",content:"<h3>KYC 了解你的客户</h3><p>实名认证，反洗钱要求</p><h4>为什么需要：</h4><ul><li>合规要求</li><li>防止洗钱</li><li>保护用户</li></ul><h4>认证内容：</h4><ul><li>身份证</li><li>人脸识别</li><li>地址证明</li></ul>",video:"",status:"locked"},
-                {day:9,title:"DeFi基础",desc:"去中心化金融/借贷DEX",content:"<h3>什么是DeFi？</h3><p>去中心化金融，无需银行等中间机构</p><h4>核心协议：</h4><ul><li><strong>Uniswap</strong> - DEX去中心化交易所</li><li><strong>Aave</strong> - 借贷协议</li><li><strong>MakerDAO</strong> - 稳定币DAI</li></ul><h4>优势：</h4><ul><li>无需KYC</li><li>全球可访问</li><li>资金自己控制</li></ul>",video:"https://youtu.be/17QRFlM4X2A",status:"locked"},
-                {day:10,title:"Uniswap",desc:"DEX使用/代币兑换",content:"<h3>Uniswap 使用教程</h3><p>最大的去中心化交易所</p><h4>如何兑换：</h4><ol><li>连接钱包</li><li>选择兑换代币对</li><li>确认兑换</li></ol><h4>注意事项：</h4><ul><li>Gas费用较高</li><li>注意滑点设置</li></ul><h4>官网：</h4><p>uniswap.org</p>",video:"",status:"locked"},
-                {day:11,title:"Aave借贷",desc:"存钱借钱/利率",content:"<h3>Aave 借贷协议</h3><p>你可以存钱赚利息，也可以抵押借币</p><h4>角色：</h4><ul><li><strong>存款人</strong> - 存币赚利息</li><li><strong>借款人</strong> - 抵押借币</li></ul><h4>风险：</h4><ul><li>清算风险 - 抵押不足被清算</li></ul><h4>官网：</h4><p>aave.com</p>",video:"",status:"locked"},
-                {day:12,title:"稳定币",desc:"USDT/USDC/DAI",content:"<h3>稳定币</h3><p>与美元挂钩的加密货币</p><h4>类型：</h4><ul><li><strong>USDT</strong> - Tether，最流通</li><li><strong>USDC</strong> - Coinbase发行，更合规</li><li><strong>DAI</strong> - 去中心化，超额抵押</li></ul><h4>用途：</h4><ul><li>出入金</li><li>价值锚定</li></ul>",video:"",status:"locked"},
-                {day:13,title:"Gas费用",desc:"网络手续费/矿工费",content:"<h3>Gas 费用</h3><p>执行智能合约需要支付的手续费</p><h4>概念：</h4><ul><li><strong>Gas</strong> - 计算单位</li><li><strong>Gas Price</strong> - 单价</li><li><strong>Gas Fee</strong> = Gas × Gas Price</li></ul><h4>影响因素：</h4><ul><li>网络拥堵程度</li><li>代币种类</li></ul><h4>节省技巧：</h4><p>选择低峰期操作</p>",video:"",status:"locked"},
-                {day:14,title:"综合测验",desc:"14天学习成果",content:"<h3>2周学习总结</h3><p>恭喜完成Web3基础入门！</p><h4>你已掌握：</h4><ul><li>区块链基础概念</li><li>钱包使用</li><li>交易所和DeFi</li><li>基本操作技能</li></ul><h4>下一步：</h4><p>可以开始实际操作，从小额开始体验</p>",video:"",status:"locked",isQuiz:true}
+                {
+                    day:1,
+                    title:"区块链基础概念",
+                    desc:"什么是区块链/PoW vs PoS/BTC+ETH",
+                    status:"completed",
+                    content:`<h3>📖 理论要点（20分钟）</h3>
+<ul>
+<li><strong>区块链是什么？</strong><br>区块链是一个分布式账本，由中本聪2008年发明。就像一个公开的记账本，所有交易记录都公开透明、不可篡改。</li>
+<li><strong>为什么区块链重要？</strong><br>无需银行等中间机构，人与人可以直接转账交易。</li>
+<li><strong>共识机制</strong><br>
+<ul>
+<li><strong>PoW（工作量证明）</strong>：谁算力强谁记账，BTC使用。耗电但安全。</li>
+<li><strong>PoS（权益证明）</strong>：谁币多谁记账，ETH使用。节能。</li>
+</ul>
+</li>
+<li><strong>BTC 比特币</strong><br>2009年诞生，数字黄金，总量2100万枚。储值资产。</li>
+<li><strong>ETH 以太坊</strong><br>2015年诞生，智能合约平台，可运行DApp。</li>
+</ul>
+<h3>📊 关键数据</h3>
+<ul>
+<li>BTC市值：约1.4万亿美元</li>
+<li>BTC持币地址：约5000万个</li>
+<li>BTC区块时间：约10分钟/块</li>
+</ul>
+<h3>💻 实操任务（40分钟）</h3>
+<ol>
+<li>打开 <a href="https://www.blockchain.com/explorer" target="_blank" style="color:var(--primary)">BTC区块浏览器</a></li>
+<li>查询中本聪创世地址：<code style="background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:4px">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</code></li>
+<li>观察：余额、交易历史、转入/转出</li>
+</ol>`,
+                    video:"https://youtu.be/bBC-nXj3Ng4",
+                    task:"查询中本聪创世地址"
+                },
+                {
+                    day:2,
+                    title:"钱包基础",
+                    desc:"私钥/公钥/地址/助记词",
+                    status:"completed",
+                    content:`<h3>📖 理论要点（20分钟）</h3>
+<ul>
+<li><strong>私钥（Private Key）</strong><br>相当于银行卡密码，<strong>谁拥有私钥，谁就控制资产</strong>。私钥是一个256位的随机数，用64位16进制表示。</li>
+<li><strong>公钥（Public Key）</strong><br>由私钥通过椭圆曲线算法推导出来，用于生成地址。</li>
+<li><strong>地址（Address）</strong><br>由公钥通过哈希运算生成，相当于银行卡号，用于接收代币。</li>
+<li><strong>助记词（Seed Phrase）</strong><br>12或24个单词，是私钥的备份形式。输入助记词可以恢复整个钱包。</li>
+</ul>
+<h3>🔐 安全原则</h3>
+<ul>
+<li>私钥绝不能告诉任何人</li>
+<li>助记词绝不能截图</li>
+<li>手写在纸上，分开保存</li>
+<li>不要在联网设备存私钥</li>
+</ul>
+<h3>📊 钱包类型</h3>
+<ul>
+<li><strong>热钱包</strong>：联网使用（Metamask、交易所钱包）- 方便但风险高</li>
+<li><strong>冷钱包</strong>：离线存储（Ledger、Trezor）- 安全但不便</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>打开区块浏览器查询你的地址</li>
+<li>查看交易记录</li>
+</ol>`,
+                    video:"https://youtu.be/QF4yjmPHGlQ",
+                    task:"查询自己钱包地址"
+                },
+                {
+                    day:3,
+                    title:"区块浏览器实战",
+                    desc:"查询工具/TxHash/Gas",
+                    status:"active",
+                    content:`<h3>📖 理论要点</h3>
+<ul>
+<li><strong>区块链浏览器</strong>：查询链上数据的工具，相当于区块链的搜索引擎。</li>
+<li><strong>常用浏览器</strong>：
+<ul>
+<li>BTC：blockchain.com、blockstream.info</li>
+<li>ETH：etherscan.io</li>
+<li>多链：dexscreener.com</li>
+</ul>
+</li>
+<li><strong>核心概念</strong>：
+<ul>
+<li><strong>TxHash</strong>：交易哈希，每笔交易的唯一ID</li>
+<li><strong>Block Height</strong>：区块高度</li>
+<li><strong>确认数</strong>：区块链确认次数</li>
+<li><strong>Gas</strong>：网络手续费</li>
+</ul>
+</li>
+</ul>
+<h3>📊 ETH Gas说明</h3>
+<ul>
+<li>Gas Limit：最大使用Gas</li>
+<li>Gas Price：Gas单价（Gwei）</li>
+<li>实际费用 = Gas Used × Gas Price</li>
+<li>拥堵时Gas费会飙升</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>打开 <a href="https://etherscan.io" target="_blank" style="color:var(--primary)">Etherscan</a></li>
+<li>查询任意ETH地址</li>
+<li>查看交易详情</li>
+<li>搜索LGNs代币合约</li>
+</ol>`,
+                    video:"https://youtu.be/BD5R2OsZ9Xk",
+                    task:"Etherscan查询"
+                },
+                {
+                    day:4,
+                    title:"交易所和KYC",
+                    desc:"CEX vs DEX/币安OKX",
+                    status:"locked",
+                    content:`<h3>📖 理论要点</h3>
+<ul>
+<li><strong>CEX（中心化交易所）</strong>
+<ul>
+<li>你持币，交易所保管</li>
+<li>需要KYC身份验证</li>
+<li>交易速度快</li>
+</ul>
+</li>
+<li><strong>DEX（去中心化交易所）</strong>
+<ul>
+<li>你持币，钱包保管</li>
+<li>无需KYC</li>
+<li>自己负责安全</li>
+</ul>
+</li>
+</ul>
+<h3>🏢 主流CEX</h3>
+<ul>
+<li><strong>币安（Binance）</strong>：全球最大，交易量第一</li>
+<li><strong>OKX</strong>：资历老，产品齐全</li>
+<li><strong>Bybit</strong>：衍生品强</li>
+<li><strong>Coinbase</strong>：美国合规第一</li>
+</ul>
+<h3>🔐 KYC是什么？</h3>
+<ul>
+<li>Know Your Customer 了解你的客户</li>
+<li>实名认证，反洗钱要求</li>
+<li>通常需要：身份证+人脸识别</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>注册币安账号</li>
+<li>完成KYC认证</li>
+<li>完成首次入金</li>
+</ol>`,
+                    video:"https://youtu.be/WZ2qw2g0y8M",
+                    task:"注册交易所"
+                },
+                {
+                    day:5,
+                    title:"DeFi基础",
+                    desc:"去中心化金融/借贷/DEX",
+                    status:"locked",
+                    content:`<h3>📖 理论要点</h3>
+<ul>
+<li><strong>DeFi是什么？</strong><br>Decentralized Finance，去中心化金融。无需银行等中间机构，直接点对点交易。</li>
+</ul>
+<h3>🏦 核心协议</h3>
+<ul>
+<li><strong>Uniswap</strong>：最大DEX，AMM机制</li>
+<li><strong>Aave</strong>：最大借贷协议</li>
+<li><strong>MakerDAO</strong>：稳定币DAI发行方</li>
+<li><strong>Compound</strong>：借贷协议</li>
+</ul>
+<h3>📊 DeFi数据（2026）</h3>
+<ul>
+<li>总锁仓量（TVL）：约500亿美元</li>
+<li>最大协议：Lido、Uniswap、Aave</li>
+</ul>
+<h3>⚠️ 风险提示</h3>
+<ul>
+<li>智能合约风险</li>
+<li>私钥丢失风险</li>
+<li> rugpull（项目方跑路）</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>访问 <a href="https://uniswap.org" target="_blank" style="color:var(--primary)">Uniswap</a></li>
+<li>了解Swap功能</li>
+</ol>`,
+                    video:"https://youtu.be/17QRFlM4X2A",
+                    task:"了解Uniswap"
+                },
+                {
+                    day:6,
+                    title:"LGNs项目研究",
+                    desc:"Origin Protocol/OGN",
+                    status:"locked",
+                    content:`<h3>📖 项目背景</h3>
+<ul>
+<li><strong>Origin Protocol</strong><br>成立于2017年，致力于创建去中心化电商和旅游平台。</li>
+<li><strong>LGNs（现OGN）</strong><br>生态治理代币，用于质押、治理、奖励。</li>
+</ul>
+<h3>📊 代币数据</h3>
+<ul>
+<li>代币符号：OGN（原LGNs）</li>
+<li>功能：质押、治理、折扣</li>
+<li>生态：DShop、Origin Dollar</li>
+</ul>
+<h3>🔍 如何研究项目</h3>
+<ul>
+<li>读白皮书（Whitepaper）</li>
+<li>看团队背景</li>
+<li>查代币经济</li>
+<li>看社区活跃度</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>在Etherscan查询OGN合约</li>
+<li>查看持币地址分布</li>
+<li>查看转账记录</li>
+</ol>`,
+                    video:"",
+                    task:"研究OGN"
+                },
+                {
+                    day:7,
+                    title:"NFT基础",
+                    desc:"ERC-721/Opensea/Blur",
+                    status:"locked",
+                    content:`<h3>📖 理论要点</h3>
+<ul>
+<li><strong>NFT</strong>：Non-Fungible Token，非同质化代币。每个NFT独一無二。</li>
+</ul>
+<h3>📜 代币标准</h3>
+<ul>
+<li><strong>ERC-721</strong>：每个代币ID唯一</li>
+<li><strong>ERC-1155</strong>：半同质化</li>
+</ul>
+<h3>🏪 主流市场</h3>
+<ul>
+<li><strong>Opensea</strong>：最大NFT市场</li>
+<li><strong>Blur</strong>：专业交易平台</li>
+<li><strong>LooksRare</strong></li>
+</ul>
+<h3>⚠️ 常见骗局</h3>
+<ul>
+<li>假NFT空投</li>
+<li>钓鱼网站</li>
+<li>假mint链接</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>访问Opensea</li>
+<li>浏览热门NFT</li>
+</ol>`,
+                    video:"",
+                    task:"浏览Opensea"
+                },
+                {
+                    day:8,
+                    title:"Layer2入门",
+                    desc:"Arbitrum/Optimism/zkSync",
+                    status:"locked",
+                    content:`<h3>📖 理论要点</h3>
+<ul>
+<li><strong>Layer2</strong>：解决ETH主网拥堵和Gas高的问题。</li>
+</ul>
+<h3>🔄 L2类型</h3>
+<ul>
+<li><strong>Optimistic Rollup</strong>：乐观卷轴，Arbitrum、Optimism</li>
+<li><strong>zkRollup</strong>：零知识证明，zkSync、StarkNet</li>
+</ul>
+<h3>📊 主流L2</h3>
+<ul>
+<li><strong>Arbitrum</strong>：TVL最高，约100亿美元</li>
+<li><strong>Optimism</strong>：OP代币</li>
+<li><strong>zkSync</strong>：zkEVM</li>
+</ul>
+<h3>💡 优势</h3>
+<ul>
+<li>Gas费降低10-100倍</li>
+<li>交易速度更快</li>
+<li>安全性由主网保障</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>了解Arbitrum桥接</li>
+<li>体验L2转账</li>
+</ol>`,
+                    video:"",
+                    task:"了解L2"
+                },
+                {
+                    day:9,
+                    title:"DAO治理",
+                    desc:"去中心化组织/投票",
+                    status:"locked",
+                    content:`<h3>📖 理论要点</h3>
+<ul>
+<li><strong>DAO</strong>：Decentralized Autonomous Organization，去中心化自治组织。</li>
+<li>没有传统公司结构，成员通过代币投票决策。</li>
+</ul>
+<h3>🗳️ 治理工具</h3>
+<ul>
+<li><strong>Snapshot</strong>：链下投票</li>
+<li><strong>Tally</strong>：链上治理</li>
+<li><strong>Discord</strong>：社区讨论</li>
+</ul>
+<h3>📊 知名DAO</h3>
+<ul>
+<li>MakerDAO：稳定币DAO</li>
+<li>Compound：借贷DAO</li>
+<li>Uniswap：DEX DAO</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>访问Snapshot</li>
+<li>查看热门提案</li>
+</ol>`,
+                    video:"",
+                    task:"查看提案"
+                },
+                {
+                    day:10,
+                    title:"实战策略",
+                    desc:"定投/套利/空投",
+                    status:"locked",
+                    content:`<h3>📖 实战策略</h3>
+<ul>
+<li><strong>DCA定投</strong>：每周/每月固定买入，降低成本。</li>
+<li><strong>套利</strong>：不同交易所价差获利。</li>
+<li><strong>空投</strong>：项目方免费送代币。</li>
+</ul>
+<h3>💰 赚钱方式</h3>
+<ul>
+<li><strong>Staking</strong>：质押代币获取收益</li>
+<li><strong>流动性挖矿</strong>：提供流动性获取奖励</li>
+<li><strong>NFT mint</strong>：低买高卖</li>
+</ul>
+<h3>⚠️ 风险控制</h3>
+<ul>
+<li>只用亏得起的钱</li>
+<li>分散投资</li>
+<li>不要FOMO</li>
+<li>设止损</li>
+</ul>
+<h3>💻 建议</h3>
+<p>从小额开始，体验整个流程。</p>
+<p>记住：不懂不要投。</p>`,
+                    video:"",
+                    task:"制定策略"
+                },
+                {
+                    day:11,
+                    title:"安全指南",
+                    desc:"防骗/钱包安全",
+                    status:"locked",
+                    content:`<h3>⚠️ 常见骗局</h3>
+<ul>
+<li><strong>假空投</strong>：让你转币才能领取</li>
+<li><strong>钓鱼网站</strong>：假链接套私钥</li>
+<li><strong>假客服</strong>：主动联系要助记词</li>
+<li><strong> RugPull</strong>：项目方卷钱跑路</li>
+</ul>
+<h3>🔐 安全建议</h3>
+<ul>
+<li>私钥/助记词绝不给人</li>
+<li>核对网址是否正确</li>
+<li>不要贪空投</li>
+<li>大额用冷钱包</li>
+<li>开启邮箱/手机验证</li>
+</ul>
+<h3>🆘 被骗怎么办</h3>
+<ul>
+<li>立即转移剩余资产</li>
+<li>报警（可能追不回）</li>
+<li>记录证据</li>
+</ul>
+<h3>💻 实操任务</h3>
+<ol>
+<li>检查钱包安全设置</li>
+<li>确认助记词安全保存</li>
+</ol>`,
+                    video:"",
+                    task:"安全检查"
+                },
+                {
+                    day:12,
+                    title:"总结与展望",
+                    desc:"回顾与下一步",
+                    status:"locked",
+                    content:`<h3>🎉 恭喜完成基础学习！</h3>
+<h3>📚 你已掌握</h3>
+<ul>
+<li>区块链基础概念</li>
+<li>钱包使用和安全</li>
+<li>交易所操作</li>
+<li>DeFi和NFT基础</li>
+<li>安全防护知识</li>
+</ul>
+<h3>🚀 下一步建议</h3>
+<ul>
+<li>开始实际操作（小额）</li>
+<li>深入学习感兴趣的领域</li>
+<li>关注行业动态</li>
+<li>加入社区</li>
+</ul>
+<h3>📱 常用工具汇总</h3>
+<ul>
+<li>区块浏览器：etherscan.io</li>
+<li>DEX：uniswap.org</li>
+<li>数据：dexscreener.com</li>
+<li>NFT：opensea.io</li>
+</ul>
+<h3>💬 交流社区</h3>
+<p>欢迎继续学习，深入Web3世界！</p>`,
+                    video:"",
+                    task:"毕业"
+                }
             ],
-            progress: {currentDay:5,completedDays:4,totalDays:14}
+            progress: {currentDay:3,completedDays:2,totalDays:12}
         };
     </script>
     <style>
@@ -30,54 +428,56 @@
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg-dark);color:var(--text);min-height:100vh;background-image:radial-gradient(ellipse at 20% 20%,rgba(0,240,255,0.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(123,44,191,0.08) 0%,transparent 50%)}
         .container{max-width:900px;margin:0 auto;padding:20px}
-        header{text-align:center;padding:40px 0}
-        .logo{font-size:48px;margin-bottom:10px}
-        h1{font-size:32px;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
-        .subtitle{color:var(--text-dim);font-size:16px}
-        .progress-bar{background:var(--bg-card);border-radius:20px;height:10px;margin:20px auto;max-width:500px;overflow:hidden}
+        header{text-align:center;padding:30px 0}
+        .logo{font-size:42px;margin-bottom:8px}
+        h1{font-size:28px;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+        .subtitle{color:var(--text-dim);font-size:14px}
+        .progress-bar{background:var(--bg-card);border-radius:20px;height:8px;margin:15px auto;max-width:450px;overflow:hidden}
         .progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:20px;transition:width 0.5s}
-        .progress-text{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:30px}
-        .tabs{display:flex;gap:10px;margin-bottom:20px;justify-content:center;flex-wrap:wrap}
-        .tab{padding:12px 24px;background:var(--bg-card);border:1px solid rgba(255,255,255,0.1);border-radius:30px;cursor:pointer;transition:all 0.3s;color:var(--text)}
+        .progress-text{text-align:center;color:var(--text-dim);font-size:13px;margin-bottom:25px}
+        .tabs{display:flex;gap:8px;margin-bottom:18px;justify-content:center;flex-wrap:wrap}
+        .tab{padding:10px 20px;background:var(--bg-card);border:1px solid rgba(255,255,255,0.1);border-radius:25px;cursor:pointer;transition:all 0.3s;color:var(--text);font-size:14px}
         .tab:hover,.tab.active{background:linear-gradient(90deg,var(--primary),var(--secondary));border-color:transparent;color:#000;font-weight:bold}
         .content{display:none}
         .content.active{display:block}
-        .course-list{display:grid;gap:12px}
-        .course-item{background:var(--bg-card);border-radius:12px;padding:20px;cursor:pointer;transition:all 0.3s;border:1px solid rgba(255,255,255,0.05)}
+        .course-list{display:grid;gap:10px}
+        .course-item{background:var(--bg-card);border-radius:10px;padding:16px;cursor:pointer;transition:all 0.3s;border:1px solid rgba(255,255,255,0.05)}
         .course-item:hover{border-color:var(--primary);transform:translateY(-2px)}
         .course-item.completed{border-left:4px solid #00ff88}
         .course-item.active{border-left:4px solid var(--primary)}
-        .course-day{font-size:12px;color:var(--text-dim);margin-bottom:5px}
-        .course-title{font-size:18px;color:var(--primary);margin-bottom:5px}
-        .course-desc{font-size:14px;color:var(--text-dim)}
-        .detail-view{background:var(--bg-card);border-radius:16px;padding:30px;margin-top:20px}
-        .detail-view h3{color:var(--primary);margin-bottom:15px;font-size:22px}
-        .detail-view h4{color:var(--secondary);margin:20px 0 10px;font-size:16px}
-        .detail-view p{line-height:1.8;margin-bottom:15px;color:var(--text)}
-        .detail-view ul{padding-left:20px;margin-bottom:15px}
-        .detail-view li{margin-bottom:8px;color:var(--text)}
-        .back-btn{display:inline-block;padding:10px 20px;background:var(--bg-card);border:1px solid var(--primary);color:var(--primary);border-radius:25px;cursor:pointer;margin-bottom:20px}
+        .course-day{font-size:12px;color:var(--text-dim);margin-bottom:4px}
+        .course-title{font-size:16px;color:var(--primary);margin-bottom:4px}
+        .course-desc{font-size:13px;color:var(--text-dim)}
+        .detail-view{background:var(--bg-card);border-radius:14px;padding:24px;margin-top:16px}
+        .detail-view h3{color:var(--primary);margin-bottom:14px;font-size:18px}
+        .detail-view h4{color:var(--secondary);margin:16px 0 8px;font-size:15px}
+        .detail-view p{line-height:1.7;margin-bottom:12px;color:var(--text)}
+        .detail-view ul{padding-left:18px;margin-bottom:12px}
+        .detail-view li{margin-bottom:6px;color:var(--text)}
+        .detail-view a{color:var(--primary)}
+        .detail-view code{background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;font-size:13px}
+        .back-btn{display:inline-block;padding:8px 16px;background:var(--bg-card);border:1px solid var(--primary);color:var(--primary);border-radius:20px;cursor:pointer;margin-bottom:14px;font-size:14px}
         .back-btn:hover{background:var(--primary);color:#000}
-        .video-link{display:inline-block;padding:10px 20px;background:linear-gradient(90deg,var(--primary),var(--secondary));color:#000;border-radius:25px;text-decoration:none;margin-top:15px}
-        .quiz-result{text-align:center;padding:40px;background:var(--bg-card);border-radius:16px;margin-top:20px}
-        .quiz-score{font-size:48px;font-weight:bold;color:var(--primary)}
-        .quiz-msg{font-size:18px;margin-top:15px}
-        .price-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:15px}
-        .price-card{background:var(--bg-card);border-radius:12px;padding:20px;text-align:center}
-        .price-icon{font-size:28px;margin-bottom:8px}
-        .price-name{font-size:13px;color:var(--text-dim);margin-bottom:5px}
-        .price-value{font-size:20px;font-weight:bold}
-        .price-change{font-size:13px;margin-top:5px}
+        .video-link{display:inline-block;padding:10px 20px;background:linear-gradient(90deg,var(--primary),var(--secondary));color:#000;border-radius:25px;text-decoration:none;margin-top:12px;font-size:14px}
+        .task-box{background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.3);border-radius:10px;padding:14px;margin-top:16px}
+        .task-box h4{color:var(--primary);margin-bottom:8px;font-size:14px}
+        .task-box p{color:var(--text);font-size:14px}
+        .price-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+        .price-card{background:var(--bg-card);border-radius:10px;padding:16px;text-align:center}
+        .price-icon{font-size:24px;margin-bottom:6px}
+        .price-name{font-size:12px;color:var(--text-dim);margin-bottom:4px}
+        .price-value{font-size:18px;font-weight:bold}
+        .price-change{font-size:12px;margin-top:4px}
         .price-up{color:#00ff88}
         .price-down{color:#ff4444}
-        .news-list{display:grid;gap:15px}
-        .news-item{background:var(--bg-card);border-radius:12px;padding:20px;border-left:4px solid var(--primary)}
-        .news-title{font-size:16px;margin-bottom:8px}
-        .news-meta{font-size:12px;color:var(--text-dim);margin-bottom:8px}
-        .news-desc{font-size:14px;color:var(--text-dim);line-height:1.6}
-        .tag{display:inline-block;padding:3px 10px;background:rgba(0,240,255,0.1);color:var(--primary);border-radius:12px;font-size:11px;margin-right:8px}
-        .loading{text-align:center;padding:40px;color:var(--text-dim)}
-        @media(max-width:600px){.tabs{gap:5px}.tab{padding:10px 14px;font-size:13px}}
+        .news-list{display:grid;gap:12px}
+        .news-item{background:var(--bg-card);border-radius:10px;padding:16px;border-left:4px solid var(--primary)}
+        .news-title{font-size:15px;margin-bottom:6px}
+        .news-meta{font-size:11px;color:var(--text-dim);margin-bottom:6px}
+        .news-desc{font-size:13px;color:var(--text-dim);line-height:1.5}
+        .tag{display:inline-block;padding:2px 8px;background:rgba(0,240,255,0.1);color:var(--primary);border-radius:10px;font-size:10px;margin-right:6px}
+        .loading{text-align:center;padding:30px;color:var(--text-dim)}
+        @media(max-width:600px){.tabs{gap:5px}.tab{padding:8px 14px;font-size:12px}}
     </style>
 </head>
 <body>
@@ -85,14 +485,14 @@
         <header>
             <div class="logo">⛓️</div>
             <h1>Web3 Academy</h1>
-            <p class="subtitle">2周从小白到Web3入门</p>
+            <p class="subtitle">2周Web3入门</p>
             <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
             <p class="progress-text" id="progressText"></p>
         </header>
         <div class="tabs">
             <div class="tab active" data-tab="courses">📚 学习课程</div>
-            <div class="tab" data-tab="news">📰 今日讯息</div>
-            <div class="tab" data-tab="prices">💰 实时行情</div>
+            <div class="tab" data-tab="news">📰 资讯</div>
+            <div class="tab" data-tab="prices">💰 行情</div>
         </div>
         <div class="content active" id="courses">
             <div class="course-list" id="courseList"></div>
@@ -106,10 +506,10 @@
         function initTabs(){document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.content').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active')})})}
         function updateProgress(){const p=(CONFIG.progress.completedDays/CONFIG.progress.totalDays)*100;document.getElementById('progressFill').style.width=p+'%';document.getElementById('progressText').textContent=`第${CONFIG.progress.currentDay}天 · ${CONFIG.progress.completedDays}/${CONFIG.progress.totalDays}天 · ${Math.round(p)}%`}
         function renderCourses(){const list=document.getElementById('courseList');list.innerHTML=CONFIG.courses.map(c=>`<div class="course-item ${c.status}" onclick="showCourse(${c.day})"><div class="course-day">第${c.day}天</div><div class="course-title">${c.title}</div><div class="course-desc">${c.desc}</div></div>`).join('')}
-        function showCourse(day){const c=CONFIG.courses.find(x=>x.day===day);const d=document.getElementById('courseDetail');if(c.isQuiz){d.innerHTML=`<div class="detail-view"><div class="quiz-result"><div class="quiz-score">🎉</div><div class="quiz-msg">恭喜完成2周Web3入门学习！</div><p style="margin-top:20px;color:var(--text-dim)">你已掌握区块链基础、钱包使用、交易所和DeFi核心概念</p></div></div>`}else{let videoHtml=c.video?`<a href="${c.video}" target="_blank" class="video-link">🎬 观看视频教程</a>`:'';d.innerHTML=`<div class="back-btn" onclick="showList()">← 返回课程列表</div><div class="detail-view"><h3>第${c.day}天：${c.title}</h3>${c.content}${videoHtml}</div>`}document.getElementById('courseList').style.display='none';d.scrollIntoView({behavior:'smooth'})}
+        function showCourse(day){const c=CONFIG.courses.find(x=>x.day===day);const d=document.getElementById('courseDetail');let videoHtml=c.video?`<a href="${c.video}" target="_blank" class="video-link">🎬 观看视频教程</a>`:'';let taskHtml=c.task?`<div class="task-box"><h4>💻 今日实操任务</h4><p>${c.task}</p></div>`:'';d.innerHTML=`<div class="back-btn" onclick="showList()">← 返回课程列表</div><div class="detail-view"><h3>第${c.day}天：${c.title}</h3>${c.content}${videoHtml}${taskHtml}</div>`;document.getElementById('courseList').style.display='none';d.scrollIntoView({behavior:'smooth'})}
         function showList(){document.getElementById('courseDetail').innerHTML='';document.getElementById('courseList').style.display='grid'}
         async function loadPrices(){const g=document.getElementById('priceGrid');g.innerHTML='<div class="loading">加载中...';try{const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,origin-protocol&vs_currencies=usd&include_24hr_change=true');const d=await r.json();const ic={bitcoin:'₿',ethereum:'Ξ',solana:'◎','origin-protocol':'OG'};const nm={bitcoin:'Bitcoin',ethereum:'Ethereum',solana:'Solana','origin-protocol':'Origin'};g.innerHTML=Object.keys(d).map(k=>`<div class="price-card"><div class="price-icon">${ic[k]||'💎'}</div><div class="price-name">${nm[k]||k}</div><div class="price-value">$${d[k].usd.toLocaleString()}</div><div class="price-change ${d[k].usd_24h_change>=0?'price-up':'price-down'}">${d[k].usd_24h_change>=0?'↑':'↓'} ${Math.abs(d[k].usd_24h_change).toFixed(2)}%</div></div>`).join('')}catch(e){g.innerHTML='<div class="loading">加载失败</div>'}}
-        function loadNews(){const n=document.getElementById('newsList');n.innerHTML=`<div class="news-item"><div class="news-title">BTC突破关键阻力</div><div class="news-meta"><span class="tag">BTC</span>2026-03-12</div><div class="news-desc">比特币今日突破$70,000，市场情绪持续升温...</div></div><div class="news-item"><div class="news-title">DeFi TVL创新高</div><div class="news-meta"><span class="tag">DeFi</span>2026-03-12</div><div class="news-desc">去中心化金融总锁仓量突破500亿美元...</div></div><div class="news-item"><div class="news-title">LGNs生态进展</div><div class="news-meta"><span class="tag">LGNs</span>2026-03-12</div><div class="news-desc">Origin Protocol生态持续扩张，TVL环比增长...</div></div>`}
+        function loadNews(){const n=document.getElementById('newsList');n.innerHTML=`<div class="news-item"><div class="news-title">BTC突破$70,000</div><div class="news-meta"><span class="tag">BTC</span>2026-03-12</div><div class="news-desc">比特币今日突破关键阻力位，市场情绪持续升温...</div></div><div class="news-item"><div class="news-title">DeFi TVL创新高</div><div class="news-meta"><span class="tag">DeFi</span>2026-03-12</div><div class="news-desc">去中心化金融总锁仓量突破500亿美元...</div></div><div class="news-item"><div class="news-title">LGNs生态进展</div><div class="news-meta"><span class="tag">LGNs</span>2026-03-12</div><div class="news-desc">Origin Protocol生态持续扩张，TVL环比增长...</div></div>`}
     </script>
 </body>
 </html>
